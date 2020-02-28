@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
 import HomeUsersList from './UserList';
-import NewUserButton from '../../components/NewUserButton/NewUserButton.jsx';
+import NewUserButton from '../../components/Button/NewUserButton.jsx';
 import SearchUserBar from '../../components/SearchUserBar/SearchUserBar.jsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +54,9 @@ function Home() {
       <div className={classes.usersHeader}>
         <h1 className={classes.h1}>Users</h1>
         {/* <SearchUserBar /> */}
-        <NewUserButton AddUser={AddUser} />
+
+        {/* There was a button for adding a new user. RIP */}
+        {/* <NewUserButton AddUser={AddUser} /> */}
       </div>
       <Grid
         className={classes.usersWrapper}
