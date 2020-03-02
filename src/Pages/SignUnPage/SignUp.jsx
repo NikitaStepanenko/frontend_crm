@@ -72,8 +72,8 @@ export default function SignUp() {
     }
     try {
       await axios.post("http://localhost:5000/users/signup", login)
-
       window.location = "/signin";
+
     }
     catch (err) {
       alert("Somthing is going wrong")

@@ -9,7 +9,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import SignUp from "./Pages/SignUnPage/SignUp.jsx"
 import Signin from "./Pages/SignInPage/SignIn.jsx";
 import AuthContextProvider from "./context/auth"
-//import { AuthContext } from "./context/auth";
 
 const theme = createMuiTheme({
   palette: {
@@ -18,14 +17,6 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  /*const [authTokens, setAuthTokens] = useState();
-  //const { authTokens } = useContext(AuthContext);
-
-  const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
-    setAuthTokens(data);
-  }*/
-
   return (
 
 
@@ -44,7 +35,7 @@ function App() {
           </Switch>
         </div>
       </AuthContextProvider>
-    </BrowserRouter >
+    </BrowserRouter>
   )
 
 }
