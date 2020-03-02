@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import projectReducer from './project.js';
+import projectReducer from './project';
 
 
-const allReducers = combineReducers({
-  project: projectReducer,
+const rootReducers = combineReducers({
+  projects: projectReducer,
 });
 
-export default allReducers;
+export default rootReducers;

@@ -31,7 +31,9 @@ export default function StickyHeadTable() {
   const classes = useStyles();
 
   const [projects, setProjects] = useState([{ name: 1, status: 'completed' },
-    { name: 1, status: 'pending' },
+    {
+      name: 1, status: 'pending', stack: 'stack', price: 'price', description: 'description',
+    },
     { name: 1, status: 'active' },
     { name: 1, status: 'completed' },
     { name: 1, status: 'active' },

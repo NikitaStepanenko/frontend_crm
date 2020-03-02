@@ -1,5 +1,4 @@
-import React from 'react';
-import StackForm from '../Form/StackForm.jsx'
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
@@ -13,10 +12,13 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import clsx from 'clsx';
+import { useSelector, useDispatch } from 'react-redux';
+import StackForm from '../Form/StackForm.jsx';
+import addProject from '../../Redux/Actions/ProjectsActions/addProject';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    
+
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -57,13 +59,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewUserButton({ AddProject }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [project, setProject] = useState({
+    name: '', status: '', price: '', stack: '', description: '',
+  });
 
-  const [age, setAge] = React.useState('');
-  const handlSubmit = () => {
-    console.log('sad');
-    AddProject({ name: 'project', status: 'active' });
-  };
+  const dispatch = useDispatch();
+
+
+  // const handlSubmit = () => {
+  //   console.log('sad');
+  //   AddProject({ project });
+  // };
 
   const handleOpen = () => {
     setOpen(true);
@@ -72,11 +79,16 @@ export default function NewUserButton({ AddProject }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleChange = (e) => {
+    // setAge(event.target.value);
+    console.log(project);
+    console.log(e.target.value);
+    setProject({ ...project, [e.target.name]: e.target.value });
+    
+    console.log(project);
   };
 
-  const classList = {};
+
   return (
 
     <div className={classes.position}>
@@ -106,12 +118,13 @@ export default function NewUserButton({ AddProject }) {
         <Fade in={open}>
           <div className={clsx(classes.paper, classes.modalWidth)}>
             <form className={classes.root} noValidate autoComplete="off">
-              <TextField label="Project Name" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} />
+              <TextField label="Project Name" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='name' onChange={handleChange} />
               <div className={classes.smallForm}>
                 <FormControl className={clsx(classes.formControl, classes.inputForm)}>
-                  <InputLabel htmlFor="filled-age-native-simple">Status</InputLabel>
+                  <InputLabel htmlFor="filled-age-native-simple" name='status'>Status</InputLabel>
                   <Select
-                    value={age}
+                    name='status'
+                    // value={age}
                     onChange={handleChange}
                     displayEmpty
                     className={classes.selectEmpty}
@@ -123,16 +136,16 @@ export default function NewUserButton({ AddProject }) {
                   {/* <FormHelperText>Placeholder</FormHelperText> */}
                 </FormControl>
 
-                <TextField label="Price" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} />
+                <TextField label="Price" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='price' onChange={handleChange} />
               </div>
               <StackForm />
               {/* <TextField label="Stack" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} /> */}
-              <TextField label="Description" inputProps={{ 'aria-label': 'description' }} className={classes.descriptionForm} />
-              <Button variant="contained" color="primary" onClick={handlSubmit} className={classes.submitButton}>
+              <TextField label="Description" inputProps={{ 'aria-label': 'description' }} className={classes.descriptionForm} name='description' onChange={handleChange} />
+              <Button variant="contained" color="primary" onClick={() => dispatch(addProject(project))} className={classes.submitButton}>
                 Submit
               </Button>
             </form>
-         
+
           </div>
         </Fade>
       </Modal>

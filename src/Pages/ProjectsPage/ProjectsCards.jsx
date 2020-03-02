@@ -8,7 +8,7 @@ function HomeUsersList({ cards }) {
   return (
     <>
       {cards.map((card) => (
-        <Grid item container key={card} justify="center" xs={12} sm={6} lg={3}>
+        <Grid item container key={Math.random()} justify="center" xs={12} sm={6} lg={3}>
           <SinglProjectCard status={card.status} />
         </Grid>
       ))}
