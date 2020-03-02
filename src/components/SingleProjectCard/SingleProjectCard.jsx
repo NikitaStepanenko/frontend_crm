@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import { DiReact, DiNodejsSmall } from 'react-icons/di';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
 import CustomBadge from '../CustomBadge/CustomBadge.jsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -48,6 +50,15 @@ const useStyles = makeStyles((theme) => ({
     boxOrient: 'vertical',
     lineClamp: 3,
   },
+  projectInfo: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom:"5px"
+  },
+  price: {
+    maxHeight: '20px',
+  },
 }));
 
 export default function RecipeReviewCard({ status }) {
@@ -56,23 +67,30 @@ export default function RecipeReviewCard({ status }) {
 
   return (
     <Card className={classes.root}>
-      <div className={classes.cardHeader}>
-        <Avatar aria-label="recipe" className={classes.avatar}>
-          {status[0].toUpperCase()}
-          {status[1]}
-        </Avatar>
-        ProjectName
-        {/* <FiberManualRecordIcon /> */}
-        <CustomBadge text={status} icon={<FiberManualRecordSharpIcon />} status={status} />
-      </div>
-      <CardContent>
-
-        <DiNodejsSmall className={classes.medium} />
-        <DiReact className={classes.medium} />
-        <Typography variant="body2" color="textSecondary" component="p" className={classes.lineClamp5}>
-          Some text Some text Some text Some textSome textSome textvSome text v Some text Some text v v v vSome textSome text Some text Some textsdasad sad asd asd asd as dasd
-        </Typography>
-      </CardContent>
+      <CardActionArea>
+        <div className={classes.cardHeader}>
+          <Avatar aria-label="recipe" className={classes.avatar}>
+            {status[0].toUpperCase()}
+            {status[1]}
+          </Avatar>
+            ProjectName
+          {/* <FiberManualRecordIcon /> */}
+          <CustomBadge text={status} icon={<FiberManualRecordSharpIcon />} status={status} />
+        </div>
+        <CardContent>
+          <div className={classes.projectInfo}>
+          <CustomBadge text="price" theme={"price"} />
+            <div>
+              <DiNodejsSmall className={classes.medium} />
+              <DiReact className={classes.medium} />
+            </div>
+            
+          </div>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.lineClamp5}>
+            Some text Some text Some text Some text Some text Some textvSome text v Some text Some text v v v vSome textSome text Some text Some textsdasad sad asd asd asd as dasd
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }

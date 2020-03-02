@@ -30,23 +30,23 @@ const useStyles = makeStyles({
 export default function StickyHeadTable() {
   const classes = useStyles();
 
-    const [projects, setProjects] = useState([{ name: 1, status: 'completed' },
+  const [projects, setProjects] = useState([{ name: 1, status: 'completed' },
     { name: 1, status: 'pending' },
     { name: 1, status: 'active' },
     { name: 1, status: 'completed' },
     { name: 1, status: 'active' },
-    { name: 1, status: 'completed' }])
+    { name: 1, status: 'completed' }]);
 
-    
-        function AddProject(proj) {
-          setProjects([...projects, proj]);
-        }
+
+  function AddProject(proj) {
+    setProjects([...projects, proj]);
+  }
 
   return (
     <>
       <div className={classes.projectsHeader}>
-        <h1 className={classes.h1}>Projects</h1>
-        <ProjectButton AddProject={AddProject}/>
+        <h1>Projects</h1>
+        <ProjectButton AddProject={AddProject} />
       </div>
       <div className={classes.tableWrapper}>
         {/* <ProjectList classes={classes} /> */}

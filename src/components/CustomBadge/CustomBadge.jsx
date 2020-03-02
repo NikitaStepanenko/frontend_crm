@@ -3,6 +3,7 @@ import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 import yellow from '@material-ui/core/colors/yellow';
 import { makeStyles } from '@material-ui/core/styles';
+import { DiReact, DiNodejsSmall } from 'react-icons/di';
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
   large: {
     padding: '5px 10px',
   },
+  price: {
+    color: '#000',
+    backgroundColor: '#eee',
+    height: '20px',
+    fontSize: '15px',
+    alignItems: 'center',
+  },
+  tech: {
+    color: '#000',
+  },
 }));
 
 
@@ -49,11 +60,13 @@ export default function CustomBadge(props) {
   } = props;
 
   const badgeClassName = clsx(classes.badge, {
+    [classes.price]: theme === 'price',
     [classes.active]: status === 'active',
     [classes.completed]: status === 'completed',
     [classes.pending]: status === 'pending',
     [classes.medium]: size === 'medium',
     [classes.large]: size === 'large',
+    [classes.tech]: theme === 'tech',
   }, className);
 
 

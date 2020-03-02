@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Form from '../AddingForm/Form.jsx';
+import Form from '../Form/Form.jsx';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
