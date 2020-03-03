@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import ProjectList from './ProjectsList.jsx';
 import ProjectCards from './ProjectsCards.jsx';
 import ProjectButton from '../../components/Button/ProjectButton.jsx';
 

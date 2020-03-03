@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react"
-import axios from "axios";
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -8,21 +8,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { AuthContext } from "../../context/auth"
+import { AuthContext } from '../../context/auth';
 
 
-
-
-
-
-
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -46,23 +39,23 @@ export default function SignUp() {
   const { isAuthenticated, toggleAuth } = useContext(AuthContext);
   const classes = useStyles();
   const [form, setState] = useState({
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   });
 
   const onChangheEmail = (e) => {
     setState({
       ...form,
-      email: e.target.value
+      email: e.target.value,
     });
-  }
+  };
 
   const onChanghePassword = (e) => {
     setState({
       ...form,
-      password: e.target.value
+      password: e.target.value,
     });
-  }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -70,23 +63,21 @@ export default function SignUp() {
 
     const login = {
       email: form.email,
-      password: form.password
-    }
+      password: form.password,
+    };
     try {
-      const result = await axios.post("http://localhost:5000/users/login", login);
+      const result = await axios.post('http://localhost:5000/users/login', login);
       localStorage.setItem('tokens', JSON.stringify(result.data));
-      console.log(result)
+      console.log(result);
       toggleAuth(result.data);
 
-      //console.log(result.data);
-      window.location = "/";
-    }
-    catch (err) {
-
-      alert("Wrong loggin or password")
+      // console.log(result.data);
+      window.location = '/';
+    } catch (err) {
+      alert('Wrong loggin or password');
     }
     //
-  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -146,7 +137,7 @@ export default function SignUp() {
             </Grid>
             <Grid item>
               <Link href="http://localhost:3000/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
@@ -156,4 +147,3 @@ export default function SignUp() {
     </Container>
   );
 }
-

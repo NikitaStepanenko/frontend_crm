@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import CardMedia from '@material-ui/core/CardMedia';
 import HomeUsersList from './UserList';
-import NewUserButton from '../../components/Button/NewUserButton.jsx';
-import SearchUserBar from '../../components/SearchUserBar/SearchUserBar.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,10 +41,10 @@ function Home() {
     { name: 'NAME', info: 'INFO' },
   ]);
 
-  function AddUser(num) {
-    setUsers([...users, num]);
-    // setUsers((prevState) => [...prevState, num])
-  }
+  // function AddUser(num) {
+  //   setUsers([...users, num]);
+  //   // setUsers((prevState) => [...prevState, num])
+  // }
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,9 +8,6 @@ import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
-import Chip from '@material-ui/core/Chip';
-import { DiReact, DiNodejsSmall } from 'react-icons/di';
-import CustomBadge from '../CustomBadge/CustomBadge.jsx';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -57,9 +54,7 @@ export default function StackForm({name, stackChange}) {
   const [stack, setStack] = React.useState([]);
 
   const handleChange = (event) => {
-    console.log("value", event.target.value)
     setStack(event.target.value);
-    console.log("value", event.target.value)
     stackChange(event.target.value);
   };
 

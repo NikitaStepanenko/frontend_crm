@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Link, NavLink } from 'react-router-dom';
-import FadeMenu from "../../components/ProfileButton/ProfileButton.jsx"
-import { makeStyles, useTheme, createMuiTheme } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,18 +16,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import PeopleIcon from '@material-ui/icons/People';
 import HomeIcon from '@material-ui/icons/Home';
 import DeveloperBoardIcon from '@material-ui/icons/DeveloperBoard';
-import MailIcon from '@material-ui/icons/Mail';
-import red from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/green';
-import yellow from '@material-ui/core/colors/yellow';
 
-//import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import FadeMenu from '../ProfileButton/ProfileButton.jsx';
 
 const drawerWidth = 240;
 
@@ -93,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconGroup: {
     marginLeft: 'auto',
-  }
+  },
 }));
 
 export default function MiniDrawer() {
@@ -174,8 +169,8 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? (
               <ChevronRightIcon />
             ) : (
-                <ChevronLeftIcon />
-              )}
+              <ChevronLeftIcon />
+            )}
           </IconButton>
         </div>
         <Divider />

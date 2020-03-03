@@ -8,7 +8,6 @@ import { red } from '@material-ui/core/colors';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import { DiReact, DiNodejsSmall } from 'react-icons/di';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CustomBadge from '../CustomBadge/CustomBadge.jsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RecipeReviewCard({ card }) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
 
   return (
 
