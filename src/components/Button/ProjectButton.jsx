@@ -18,18 +18,21 @@ import addProject from '../../Redux/Actions/ProjectsActions/addProject';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-
+    
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: '4px solid #000',
+    borderRadius: "5px",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    // padding: theme.spacing(2, 4, 3),
+    padding: '20px 40px'
   },
   position: {
+    // padding: 'auto 20px', 
     display: 'flex',
     alignItems: 'Center',
   },
@@ -61,16 +64,11 @@ export default function NewUserButton({ AddProject }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [project, setProject] = useState({
-    name: '', status: '', price: '', stack: '', description: '',
+    name: '', status: '', price: '', stack: [], description: '',
   });
 
   const dispatch = useDispatch();
 
-
-  // const handlSubmit = () => {
-  //   console.log('sad');
-  //   AddProject({ project });
-  // };
 
   const handleOpen = () => {
     setOpen(true);
@@ -80,14 +78,11 @@ export default function NewUserButton({ AddProject }) {
     setOpen(false);
   };
   const handleChange = (e) => {
-    // setAge(event.target.value);
-    console.log(project);
-    console.log(e.target.value);
     setProject({ ...project, [e.target.name]: e.target.value });
-    
-    console.log(project);
   };
-
+  const stackChange = (stack) => {
+    setProject({ ...project, stack });
+  };
 
   return (
 
@@ -118,6 +113,7 @@ export default function NewUserButton({ AddProject }) {
         <Fade in={open}>
           <div className={clsx(classes.paper, classes.modalWidth)}>
             <form className={classes.root} noValidate autoComplete="off">
+              <h2>Add new project</h2>
               <TextField label="Project Name" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='name' onChange={handleChange} />
               <div className={classes.smallForm}>
                 <FormControl className={clsx(classes.formControl, classes.inputForm)}>
@@ -138,10 +134,10 @@ export default function NewUserButton({ AddProject }) {
 
                 <TextField label="Price" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='price' onChange={handleChange} />
               </div>
-              <StackForm />
+              <StackForm name='stack' stackChange={stackChange} />
               {/* <TextField label="Stack" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} /> */}
               <TextField label="Description" inputProps={{ 'aria-label': 'description' }} className={classes.descriptionForm} name='description' onChange={handleChange} />
-              <Button variant="contained" color="primary" onClick={() => dispatch(addProject(project))} className={classes.submitButton}>
+              <Button variant="contained" color="primary" onClick={() => { dispatch(addProject(project)); setOpen(false); }} className={classes.submitButton}>
                 Submit
               </Button>
             </form>

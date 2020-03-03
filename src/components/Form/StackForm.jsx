@@ -52,21 +52,15 @@ const names = [
   { tech: 'MongoDb' },
 ];
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
-export default function StackForm() {
+export default function StackForm({name, stackChange}) {
   const classes = useStyles();
-  const [personName, setPersonName] = React.useState([]);
+  const [stack, setStack] = React.useState([]);
 
   const handleChange = (event) => {
-    setPersonName(event.target.value);
+    console.log("value", event.target.value)
+    setStack(event.target.value);
+    console.log("value", event.target.value)
+    stackChange(event.target.value);
   };
 
   return (
@@ -78,7 +72,7 @@ export default function StackForm() {
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"
           multiple
-          value={personName}
+          value={stack}
           onChange={handleChange}
           input={<Input />}
           renderValue={(selected) => selected.join(', ')}
@@ -86,7 +80,7 @@ export default function StackForm() {
         >
           {names.map((name) => (
             <MenuItem key={name.tech} value={name.tech}>
-              <Checkbox checked={personName.indexOf(name.tech) > -1} />
+              <Checkbox checked={stack.indexOf(name.tech) > -1} />
               <ListItemText primary={name.tech} />
             </MenuItem>
           ))}

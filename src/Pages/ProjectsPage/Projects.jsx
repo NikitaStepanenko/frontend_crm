@@ -5,6 +5,7 @@ import ProjectList from './ProjectsList.jsx';
 import ProjectCards from './ProjectsCards.jsx';
 import ProjectButton from '../../components/Button/ProjectButton.jsx';
 
+
 const useStyles = makeStyles({
   container: {
     marginTop: '20px',
@@ -30,30 +31,32 @@ const useStyles = makeStyles({
 export default function StickyHeadTable() {
   const classes = useStyles();
 
-  const [projects, setProjects] = useState([{ name: 1, status: 'completed' },
-    {
-      name: 1, status: 'pending', stack: 'stack', price: 'price', description: 'description',
-    },
-    { name: 1, status: 'active' },
-    { name: 1, status: 'completed' },
-    { name: 1, status: 'active' },
-    { name: 1, status: 'completed' }]);
+  // const [projects, setProjects] = useState([{ name: 1, status: 'completed' },
+  //   {
+  //     name: 1, status: 'pending', stack: 'stack', price: 'price', description: 'description',
+  //   },
+  //   { name: 1, status: 'active' },
+  //   { name: 1, status: 'completed' },
+  //   { name: 1, status: 'active' },
+  //   { name: 1, status: 'completed' }]);
+
+  // const projects = useSelector((state) => state.projects);
 
 
-  function AddProject(proj) {
-    setProjects([...projects, proj]);
-  }
+  // function AddProject(proj) {
+  //   setProjects([...projects, proj]);
+  // }
 
   return (
     <>
       <div className={classes.projectsHeader}>
         <h1>Projects</h1>
-        <ProjectButton AddProject={AddProject} />
+        <ProjectButton />
       </div>
       <div className={classes.tableWrapper}>
         {/* <ProjectList classes={classes} /> */}
         <Grid container spacing={3}>
-          <ProjectCards cards={projects} />
+          <ProjectCards  />
         </Grid>
       </div>
     </>

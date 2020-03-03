@@ -54,40 +54,42 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom:"5px"
+    marginBottom: '5px',
   },
   price: {
     maxHeight: '20px',
   },
 }));
 
-export default function RecipeReviewCard({ status }) {
+export default function RecipeReviewCard({ card }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   return (
+
     <Card className={classes.root}>
+      {console.log(card)}
       <CardActionArea>
         <div className={classes.cardHeader}>
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {status[0].toUpperCase()}
-            {status[1]}
+            {card.name[0].toUpperCase()}
+            {card.name[1]}
           </Avatar>
-            ProjectName
+          {card.name}
           {/* <FiberManualRecordIcon /> */}
-          <CustomBadge text={status} icon={<FiberManualRecordSharpIcon />} status={status} />
+          <CustomBadge text={card.status} icon={<FiberManualRecordSharpIcon />} status={card.status} />
         </div>
         <CardContent>
           <div className={classes.projectInfo}>
-          <CustomBadge text="price" theme={"price"} />
+            <CustomBadge text={`${card.price}$/day`} theme="price" />
             <div>
               <DiNodejsSmall className={classes.medium} />
               <DiReact className={classes.medium} />
             </div>
-            
+
           </div>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.lineClamp5}>
-            Some text Some text Some text Some text Some text Some textvSome text v Some text Some text v v v vSome textSome text Some text Some textsdasad sad asd asd asd as dasd
+            {card.description}
           </Typography>
         </CardContent>
       </CardActionArea>
