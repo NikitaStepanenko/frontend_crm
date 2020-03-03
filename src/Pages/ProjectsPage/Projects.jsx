@@ -9,6 +9,10 @@ import { loadProject } from '../../Redux/Actions/ProjectsActions/ProjectActions'
 
 
 const useStyles = makeStyles({
+  button: {
+    fontSize: '13 px',
+    height: '40px',
+  },
   container: {
     marginTop: '20px',
     margin: 'auto',
@@ -19,6 +23,7 @@ const useStyles = makeStyles({
     margin: '0 auto',
   },
   projectsHeader: {
+    alignItems: 'center',
     maxWidth: '1370px',
     justifyContent: 'space-between',
     display: 'flex',
@@ -49,7 +54,7 @@ export default function StickyHeadTable() {
           variant="contained"
           color="primary"
           size="large"
-          // className={classes.button}
+          className={classes.button}
           onClick={() => setIsOpen(true)}
         >
           Add new project

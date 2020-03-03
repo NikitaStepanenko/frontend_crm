@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import { DiReact, DiNodejsSmall } from 'react-icons/di';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+import ProjectId from '../../Pages/ProjectIdPage/ProjectId';
 import CustomBadge from '../CustomBadge/CustomBadge.jsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: '10px',
-    backgroundColor: "#32418c",
+    backgroundColor: '#32418c',
   },
   cardHeader: {
     display: 'flex',
@@ -58,15 +61,14 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '20px',
   },
 }));
-
+// window.location = '/projectId'
 export default function RecipeReviewCard({ card }) {
   const classes = useStyles();
 
   return (
-
-    <Card className={classes.root}>
+    <Card className={classes.root} >
       {console.log(card)}
-      <CardActionArea>
+      <CardActionArea onClick={(e) => console.log(e.target)}>
         <div className={classes.cardHeader}>
           <Avatar aria-label="recipe" className={classes.avatar}>
             {/* {card.name[0].toUpperCase()}
