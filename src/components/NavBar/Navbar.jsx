@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link, NavLink } from 'react-router-dom';
+import FadeMenu from "../../components/ProfileButton/ProfileButton.jsx"
 import { makeStyles, useTheme, createMuiTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -22,7 +23,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import DeveloperBoardIcon from '@material-ui/icons/DeveloperBoard';
 import MailIcon from '@material-ui/icons/Mail';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+//import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconGroup: {
     marginLeft: 'auto',
-  },
+  }
 }));
 
 export default function MiniDrawer() {
@@ -145,7 +146,8 @@ export default function MiniDrawer() {
             <IconButton
               color="inherit"
             >
-              <AccountCircleIcon />
+
+              <FadeMenu />
             </IconButton>
           </div>
 
@@ -169,8 +171,8 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? (
               <ChevronRightIcon />
             ) : (
-              <ChevronLeftIcon />
-            )}
+                <ChevronLeftIcon />
+              )}
           </IconButton>
         </div>
         <Divider />
