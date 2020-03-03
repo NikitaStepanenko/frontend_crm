@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
-  const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+  const { toggleAuth } = useContext(AuthContext);
   const classes = useStyles();
   const [form, setState] = useState({
     email: '',
@@ -68,9 +68,7 @@ export default function SignUp() {
     try {
       const result = await axios.post('http://localhost:5000/users/login', login);
       localStorage.setItem('tokens', JSON.stringify(result.data));
-      console.log(result);
       toggleAuth(result.data);
-
       // console.log(result.data);
       window.location = '/';
     } catch (err) {

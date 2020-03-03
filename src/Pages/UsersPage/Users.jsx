@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const classes = useStyles();
-  const [users, setUsers] = useState([
+  const [users] = useState([
     { name: 'NAME', info: 'INFO' },
     { name: 'NAme', info: 'INFO' },
     { name: 'NAmE', info: 'INFO' },

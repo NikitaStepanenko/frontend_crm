@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { AuthContext } from '../../context/auth';
 
 function PrivateRoute({ component: Component, ...rest }) {
-  const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   console.log(isAuthenticated);
   return (
     <Route

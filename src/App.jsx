@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Provider } from 'react-redux';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import Navbar from './components/NavBar/Navbar';
 import Users from './Pages/UsersPage/Users';
@@ -10,7 +9,6 @@ import Home from './Pages/HomePage/Home';
 import SignUp from './Pages/SignUnPage/SignUp.jsx';
 import Signin from './Pages/SignInPage/SignIn.jsx';
 import AuthContextProvider from './context/auth';
-import store from './Redux/Store';
 
 
 const theme = createMuiTheme({
@@ -25,7 +23,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <AuthContextProvider>
-          <Provider store={store}>
             <div className="App">
               <Navbar />
               <Switch>
@@ -37,8 +34,6 @@ function App() {
 
               </Switch>
             </div>
-          </Provider>
-
         </AuthContextProvider>
       </BrowserRouter>
     </ThemeProvider>

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const classes = useStyles();
-  const [users, setUsers] = useState([1, 2, 3]);
+  const [users] = useState([1, 2, 3]);
   return (
     <>
       <div className={classes.homeTopSection} />

@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import { DiReact, DiNodejsSmall } from 'react-icons/di';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -31,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: '10px',
-    backgroundColor: red[500],
+    backgroundColor: "#32418c",
   },
   cardHeader: {
     display: 'flex',
@@ -70,8 +69,8 @@ export default function RecipeReviewCard({ card }) {
       <CardActionArea>
         <div className={classes.cardHeader}>
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {card.name[0].toUpperCase()}
-            {card.name[1]}
+            {/* {card.name[0].toUpperCase()}
+            {card.name[1]} */}
           </Avatar>
           {card.name}
           {/* <FiberManualRecordIcon /> */}

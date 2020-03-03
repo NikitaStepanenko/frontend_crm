@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import { useDispatch, useSelector } from 'react-redux';
 import ProjectCards from './ProjectsCards.jsx';
-import ProjectButton from '../../components/Button/ProjectButton.jsx';
+import ProjectModal from './ProjectsModal';
+import { loadProject } from '../../Redux/Actions/ProjectsActions/ProjectActions';
 
 
 const useStyles = makeStyles({
@@ -29,35 +32,36 @@ const useStyles = makeStyles({
 
 export default function StickyHeadTable() {
   const classes = useStyles();
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const projects = useSelector((state) => state.projects.projects);
 
-  // const [projects, setProjects] = useState([{ name: 1, status: 'completed' },
-  //   {
-  //     name: 1, status: 'pending', stack: 'stack', price: 'price', description: 'description',
-  //   },
-  //   { name: 1, status: 'active' },
-  //   { name: 1, status: 'completed' },
-  //   { name: 1, status: 'active' },
-  //   { name: 1, status: 'completed' }]);
+  useEffect(() => {
+    dispatch(loadProject());
+  }, [dispatch]);
 
-  // const projects = useSelector((state) => state.projects);
-
-
-  // function AddProject(proj) {
-  //   setProjects([...projects, proj]);
-  // }
 
   return (
     <>
       <div className={classes.projectsHeader}>
         <h1>Projects</h1>
-        <ProjectButton />
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          // className={classes.button}
+          onClick={() => setIsOpen(true)}
+        >
+          Add new project
+        </Button>
       </div>
       <div className={classes.tableWrapper}>
         {/* <ProjectList classes={classes} /> */}
         <Grid container spacing={3}>
-          <ProjectCards  />
+          <ProjectCards projects={projects} />
         </Grid>
       </div>
+      <ProjectModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }

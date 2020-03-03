@@ -3,9 +3,8 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
-import { makeStyles, useTheme, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import yellow from '@material-ui/core/colors/yellow';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +27,12 @@ export default function FadeMenu() {
 
   const handleClose = () => {
     setAnchorEl(null);
+
+  };
+  const handleCloselogout = () => {
+    setAnchorEl(null);
+    localStorage.clear()
+    window.location = "/signin";
   };
 
   return (
@@ -45,7 +50,7 @@ export default function FadeMenu() {
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleCloselogout}>Logout</MenuItem>
       </Menu>
     </div>
   );
