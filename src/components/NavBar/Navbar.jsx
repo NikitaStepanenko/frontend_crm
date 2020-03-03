@@ -22,6 +22,9 @@ import PeopleIcon from '@material-ui/icons/People';
 import HomeIcon from '@material-ui/icons/Home';
 import DeveloperBoardIcon from '@material-ui/icons/DeveloperBoard';
 import MailIcon from '@material-ui/icons/Mail';
+import red from '@material-ui/core/colors/red';
+import green from '@material-ui/core/colors/green';
+import yellow from '@material-ui/core/colors/yellow';
 
 //import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
@@ -188,7 +191,7 @@ export default function MiniDrawer() {
             </Link>
           </ListItem> */}
           <Link to="/">
-            <ListItem button key="Home">
+            <ListItem button key="Home" color="red[500]">
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>

@@ -2,11 +2,10 @@ import React from 'react';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Box from '@material-ui/core/Box';
+import Form from '../Form/Form.jsx';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,14 +24,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'Center',
   },
   button: {
-      display:"block",
-      margin: "0 auto", 
-     }
+    display: 'block',
+    margin: '0 auto',
+  },
 }));
 
 export default function NewUserButton({ AddUser }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+
+  const userInfo = ['User name', 'Skype', 'GitHub', 'Project', 'PhoneNumber'];
 
   const handlSubmit = () => {
     AddUser(1);
@@ -57,10 +58,11 @@ export default function NewUserButton({ AddUser }) {
         // className={classes.button}
         startIcon={<PersonAddIcon />}
         onClick={handleOpen}
-      > 
+      >
         Add
       </Button>
       <Modal
+      
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
@@ -71,17 +73,17 @@ export default function NewUserButton({ AddUser }) {
         BackdropProps={{
           timeout: 500,
         }}
-      >     
+      >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
+            <h2 id="transition-modal-title">Add new user</h2>
+            {userInfo.map((info) => <Form userInfo={info} />)}
             <Button variant="contained" color="primary" onClick={handlSubmit} className={classes.button}>
               Submit
             </Button>
           </div>
         </Fade>
       </Modal>
-    </div>  
+    </div>
   );
 }

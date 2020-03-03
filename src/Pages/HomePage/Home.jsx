@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import HomeUsersList from './HomeUsersList';
+import HomeUsersList from './HomeUsersList.jsx';
 import HeaderBg from '../../Assets/headerBg.jpg';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,9 +31,8 @@ function Home() {
   const [users, setUsers] = useState([1, 2, 3]);
   return (
     <>
-      <div className={classes.homeTopSection}>
+      <div className={classes.homeTopSection} />
 
-      </div>
       <Grid
         className={classes.usersWrapper}
         container
