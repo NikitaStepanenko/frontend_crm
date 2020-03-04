@@ -1,7 +1,9 @@
-import React, { useState } from "react"
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -9,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -32,23 +34,23 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
   const [form, setState] = useState({
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   });
 
   const onChangheEmail = (e) => {
     setState({
       ...form,
-      email: e.target.value
+      email: e.target.value,
     });
-  }
+  };
 
   const onChanghePassword = (e) => {
     setState({
       ...form,
-      password: e.target.value
+      password: e.target.value,
     });
-  }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -56,18 +58,16 @@ export default function SignUp() {
 
     const login = {
       email: form.email,
-      password: form.password
-    }
+      password: form.password,
+    };
     try {
-      await axios.post("http://localhost:5000/users/signup", login)
-      window.location = "/signin";
-
-    }
-    catch (err) {
-      alert("Somthing is going wrong")
+      await axios.post('http://localhost:5000/users/signup', login);
+      window.location = '/signin';
+    } catch (err) {
+      alert('Somthing is going wrong');
     }
     //
-  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -115,9 +115,17 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
+          <Grid container>
+            <Grid>
+              <Link href="http://localhost:3000/signin" variant="body2">
+                Get back
+              </Link>
+            </Grid>
+
+          </Grid>
+
         </form>
       </div>
     </Container>
   );
 }
-

@@ -10,7 +10,6 @@ export const addProject = (project) => async (dispatch) => {
     dispatch({ type: ADD_PROJECT_BEGIN });
     const loginToken = JSON.parse(localStorage.getItem('tokens'));
     // console.log(rerqwrqwer);
-    console.log(require);
     const { data } = await axios.post('http://localhost:5000/project/addproject', { headers: { tokens: loginToken } }, { data: project });
     dispatch({ type: ADD_PROJECT, payload: data });
   } catch (error) {
@@ -21,6 +20,7 @@ export const addProject = (project) => async (dispatch) => {
 
 export const loadProject = () => async (dispatch) => {
   try {
+    // if (localStorage.getItem('admin') === 'true') {
     dispatch({ type: LOAD_RPOJECT });
     const loginToken = JSON.parse(localStorage.getItem('tokens'));
     const { data } = await axios.get('http://localhost:5000/project', { headers: { tokens: loginToken } });
