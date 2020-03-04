@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    // maxWidth: 300,
+    // border:'1px solid'
   },
   chips: {
     display: 'flex',
@@ -61,7 +61,7 @@ export default function StackForm({name, stackChange}) {
   return (
     <div>
 
-      <FormControl className={clsx(classes.formControl, classes.inputForm)}>
+      <FormControl variant="outlined" className={clsx(classes.formControl, classes.inputForm)}>
         <InputLabel id="demo-mutiple-checkbox-label">Stack</InputLabel>
         <Select
           labelId="demo-mutiple-checkbox-label"

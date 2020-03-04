@@ -2,13 +2,15 @@ import React from 'react';
 import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 import yellow from '@material-ui/core/colors/yellow';
+import blue from '@material-ui/core/colors/blue';
+import brown from '@material-ui/core/colors/brown';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   badge: {
     padding: '2px 4px',
-    display: 'flex',
+    // display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '4px',
@@ -23,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: green[500],
   },
   pending: {
+    backgroundColor: brown[500],
+  },
+  onGoing: {
+    backgroundColor: blue[500],
+  },
+  stopped: {
     backgroundColor: red[500],
   },
   tiny: {
@@ -62,7 +70,9 @@ export default function CustomBadge(props) {
     [classes.price]: theme === 'price',
     [classes.active]: status === 'active',
     [classes.completed]: status === 'completed',
+    [classes.stopped]: status === 'stopped',
     [classes.pending]: status === 'pending',
+    [classes.onGoing]: status === 'onGoing',
     [classes.medium]: size === 'medium',
     [classes.large]: size === 'large',
     [classes.tech]: theme === 'tech',

@@ -16,14 +16,13 @@ import { addProject } from '../../Redux/Actions/ProjectsActions/ProjectActions';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-
+    border: 'none',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '4px solid #000',
     borderRadius: '5px',
     boxShadow: theme.shadows[5],
     padding: '20px 40px',
@@ -45,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
   descriptionForm: {
     maxHeight: '200px',
     width: '100%',
-
   },
   smallForm: {
     display: 'flex',
@@ -104,10 +102,10 @@ export default function ProjectModal(props) {
           <div className={clsx(classes.paper, classes.modalWidth)}>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={projectPush}>
               <h2>Add new project</h2>
-              <TextField label="Project Name" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='name' onChange={handleChange} />
-              <div className={classes.smallForm}>
-                <FormControl className={clsx(classes.formControl, classes.inputForm)}>
-                  <InputLabel htmlFor="filled-age-native-simple" name='status'>Status</InputLabel>
+              <TextField label="Project Name"  variant="outlined" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='name' onChange={handleChange} />
+              <div className={classes.smallForm}> 
+                <FormControl label="Status" placeholder='Status' variant="outlined" className={clsx(classes.formControl, classes.inputForm)} style={{marginRight:5}}>
+      
                   <Select
                     name='status'
                     onChange={handleChange}
@@ -117,13 +115,16 @@ export default function ProjectModal(props) {
                     <MenuItem value="active">Active</MenuItem>
                     <MenuItem value="completed">Completed</MenuItem>
                     <MenuItem value="pending">Pending</MenuItem>
+                    <MenuItem value="onGoing">On going</MenuItem>
+                    <MenuItem value="stopped">Stopped</MenuItem>
                   </Select>
                 </FormControl>
 
-                <TextField label="Price" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='price' onChange={handleChange} />
+                <TextField type="number" style={{marginLeft:5}} variant="outlined" label="Price" inputProps={{ 'aria-label': 'description' }} className={classes.inputForm} name='price' onChange={handleChange} />
               </div>
-              <StackForm name='stack' stackChange={stackChange} />
+              <StackForm  name='stack' stackChange={stackChange} />
               <TextField
+              variant="outlined"
                 id="standard-multiline-flexible"
                 label="Description"
                 multiline

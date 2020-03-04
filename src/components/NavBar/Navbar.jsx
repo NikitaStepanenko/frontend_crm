@@ -89,6 +89,10 @@ const useStyles = makeStyles((theme) => ({
   iconGroup: {
     marginLeft: 'auto',
   },
+  link: {
+    textDecoration:'none',
+    color: '#000'
+  }
 }));
 
 export default function MiniDrawer() {
@@ -127,7 +131,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer
+            Exceed
           </Typography>
           <div className={classes.iconGroup}>
             <IconButton
@@ -175,17 +179,7 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {/* <ListItem button key="Home">
-            <Link to="/">
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-            </Link>
-            <Link to="/">
-              <ListItemText primary={'Home'} />
-            </Link>
-          </ListItem> */}
-          <Link to="/">
+          <Link to="/" className={classes.link}>
             <ListItem button key="Home" color="red[500]">
               <ListItemIcon>
                 <HomeIcon />
@@ -194,7 +188,7 @@ export default function MiniDrawer() {
             </ListItem>
           </Link>
 
-          <Link to="/users">
+          <Link to="/users" className={classes.link}>
             <ListItem button key="Users">
               <ListItemIcon>
                 <PeopleIcon />
@@ -203,7 +197,7 @@ export default function MiniDrawer() {
             </ListItem>
           </Link>
 
-          <Link to="/projects">
+          <Link to="/projects" className={classes.link}>
             <ListItem button key="Projects">
               <ListItemIcon>
                 <DeveloperBoardIcon />
@@ -211,13 +205,6 @@ export default function MiniDrawer() {
               <ListItemText primary="Projects" />
             </ListItem>
           </Link>
-
-          {/* {['Home', 'Users', 'Projects'].map((text, index) => (
-          <ListItem button key={text}>
-            <Link to="/">Home</Link>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))} */}
         </List>
 
         <Divider />

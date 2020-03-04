@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,10 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 import { DiReact, DiNodejsSmall } from 'react-icons/di';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import { Link as RouterLink } from 'react-router-dom';
-import Link from '@material-ui/core/Link';
-import ProjectId from '../../Pages/ProjectIdPage/ProjectId';
+import { useHistory } from 'react-router-dom';
 import CustomBadge from '../CustomBadge/CustomBadge.jsx';
+import { findProject } from '../../Redux/Actions/ProjectsActions/ProjectActions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,18 +61,23 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '20px',
   },
 }));
-// window.location = '/projectId'
 export default function RecipeReviewCard({ card }) {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(findProject(card._id));
+    history.push(`/projects/${card._id}`);
+  }
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} >
-      {console.log(card)}
-      <CardActionArea onClick={(e) => console.log(e.target)}>
+    <Card className={classes.root}>
+      <CardActionArea onClick={handleClick}>
         <div className={classes.cardHeader}>
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {/* {card.name[0].toUpperCase()}
-            {card.name[1]} */}
+            {card.name[0].toUpperCase()}
+            {card.name[1].toLowerCase()}
           </Avatar>
           {card.name}
           {/* <FiberManualRecordIcon /> */}
@@ -80,7 +85,7 @@ export default function RecipeReviewCard({ card }) {
         </div>
         <CardContent>
           <div className={classes.projectInfo}>
-            <CustomBadge text={`${card.price}$/day`} theme="price" />
+            <CustomBadge text={`${card.price}$/hour`} theme="price" />
             <div>
               <DiNodejsSmall className={classes.medium} />
               <DiReact className={classes.medium} />
