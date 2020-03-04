@@ -14,6 +14,5 @@ async function getData(url, data) {
 // eslint-disable-next-line import/prefer-default-export
 export const addNewProject = (project) => postData('http://localhost:5000/project/addproject', project);
 
-
 // eslint-disable-next-line import/prefer-default-export
 export const loadAllProjects = (project) => getData('http://localhost:5000/project/', project);

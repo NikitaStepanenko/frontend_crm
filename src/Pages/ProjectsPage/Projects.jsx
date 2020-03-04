@@ -4,11 +4,15 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import ProjectCards from './ProjectsCards.jsx';
-import ProjectModal from './ProjectsModal';
+import ProjectModal from './ProjectsModal.jsx';
 import { loadProject } from '../../Redux/Actions/ProjectsActions/ProjectActions';
 
-
 const useStyles = makeStyles({
+  button: {
+    fontSize: '13 px',
+    height: '40px',
+    padding: '0 10px'
+  },
   container: {
     marginTop: '20px',
     margin: 'auto',
@@ -19,6 +23,7 @@ const useStyles = makeStyles({
     margin: '0 auto',
   },
   projectsHeader: {
+    alignItems: 'center',
     maxWidth: '1370px',
     justifyContent: 'space-between',
     display: 'flex',
@@ -40,7 +45,6 @@ export default function StickyHeadTable() {
     dispatch(loadProject());
   }, [dispatch]);
 
-
   return (
     <>
       <div className={classes.projectsHeader}>
@@ -49,10 +53,10 @@ export default function StickyHeadTable() {
           variant="contained"
           color="primary"
           size="large"
-          // className={classes.button}
+          className={classes.button}
           onClick={() => setIsOpen(true)}
         >
-          Add new project
+          Add project
         </Button>
       </div>
       <div className={classes.tableWrapper}>

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import {
-  ADD_PROJECT, ADD_PROJECT_BEGIN, ADD_RPOJECT_ERROR, LOAD_RPOJECT, LOAD_RPOJECT_SUCCESS, LOAD_RPOJECT_ERROR,
+
+  ADD_PROJECT, ADD_PROJECT_BEGIN, ADD_RPOJECT_ERROR, LOAD_RPOJECT, LOAD_RPOJECT_SUCCESS, LOAD_RPOJECT_ERROR, FIND_PROJECT,
 } from '../../ActionTypes/projectsTypes/projectsTypes';
+
 // import { addNewProject } from './ProjectsApi';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -29,3 +31,5 @@ export const loadProject = () => async (dispatch) => {
     dispatch({ type: LOAD_RPOJECT_ERROR, payload: error });
   }
 };
+
+export const findProject = (id) => ({ type: FIND_PROJECT, payload: id });

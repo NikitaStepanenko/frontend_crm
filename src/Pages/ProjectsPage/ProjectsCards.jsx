@@ -1,9 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { useSelector } from 'react-redux';
 import SinglProjectCard from '../../components/SingleProjectCard/SingleProjectCard.jsx';
 
-function HomeUsersList(props) {
+function ProjectsCards(props) {
   const { projects } = props;
   return (
     <>
@@ -16,4 +15,4 @@ function HomeUsersList(props) {
   );
 }
 
-export default HomeUsersList;
+export default ProjectsCards;
