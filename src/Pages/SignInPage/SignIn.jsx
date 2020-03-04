@@ -67,6 +67,7 @@ export default function SignUp() {
     };
     try {
       const result = await axios.post('http://localhost:5000/users/login', login);
+      // console.log(result);
       localStorage.setItem('tokens', JSON.stringify(result.data));
       toggleAuth(result.data);
       // console.log(result.data);
