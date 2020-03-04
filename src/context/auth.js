@@ -19,10 +19,10 @@ export const AuthContext = createContext();
 
 class AuthContextProvider extends Component {
   state = {
-    isAuthenticated: localStorage.getItem('tokens') || 0
+    isAuthenticated: localStorage.getItem('tokens') || 0,
   }
   toggleAuth = (value) => {
-    this.setState({ isAuthenticated: value });
+    this.setState({ isAuthenticated: value});
   }
   render() {
     return (
